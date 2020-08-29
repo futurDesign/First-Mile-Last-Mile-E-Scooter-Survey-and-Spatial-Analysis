@@ -1,0 +1,84 @@
+﻿name,label
+car_walk_time,Walk Time from Car Parking Location to Destination (mins)
+car_drive_time,Car Drive Time (mins)
+car_parking_cost,Car Parking Cost ($)
+bike_ride_time,Bike Ride Time (mins)
+em_walk_time,Walk Time to E-Scooter (mins)
+em_scoot_time,E-Scooter Time to MAX Station (mins)
+em_scoot_cost,E-scooter Cost ($)
+em_ticket_cost,MAX Ticket Cost ($)
+em_ride_time,MAX Ride Time (mins)
+Q68_inc_2:2.bike,"Bike: $25,000 - $49,999"
+Q68_inc_3:2.bike,"Bike: $50,000 - $74,999"
+Q68_inc_4:2.bike,"Bike: $75,000 - $99,999"
+Q68_inc_5:2.bike,"Bike: $100,000 - $124,999"
+Q68_inc_6:2.bike,"Bike: Greater than $125,000"
+RECODED_Q63_am_ind_ala:2.bike,Bike: American Indian or Alaska Native only
+RECODED_Q63_asian:2.bike,Bike: Asian only
+RECODED_Q63_black:2.bike,Bike: Black only
+RECODED_Q63_hisp_lat:2.bike,Bike: Hispanic or Latinx/Latino/Latina only
+RECODED_Q63_more_than_one_race:2.bike,Bike: More than one race or ethnicity
+RECODED_Q63_nat_haw_pac:2.bike,Bike: Native Hawaiian or Pacific Islander only
+RECODED_Q63_other:2.bike,Bike: Other only
+Q65_female:2.bike,Bike: Female
+Q65_nonbinary:2.bike,Bike: Non-Binary
+Q65_other:2.bike,Bike: Other
+Q11:2.bike,Bike: Has driver's license
+Q64:2.bike,Bike: Age
+Q66:2.bike,Bike: Is married or living with partner
+Q67:2.bike,Bike: Number of children responsible for (ranges)
+Q69:2.bike,Bike: General state of health
+Q70:2.bike,Bike: Has physical limitations that make riding a bicycle or an e-scooter difficult
+RECODED_Q6activetransport:2.bike,Bike: Primary Commute Mode to PSU is Active Transportation
+RECODED_Q6publictransit:2.bike,Bike: Primary Commute Mode to PSU is Public Transit
+RECODED_Q6other:2.bike,Bike: Primary Commute Mode to PSU is Other
+Q5:2.bike,Bike: Number of days per week comes to PSU
+Q7_4:2.bike,Bike: Home distance from campus
+Q13:2.bike,Bike: Number of one way car trips in last 7 days
+Q17:2.bike,Bike: Number of one way bike trips in last 7 days
+Q23:2.bike,Bike: Number of one way e-scooter trips in last 7 days
+Q30:2.bike,Bike: Number of one way MAX trips in last 7 days
+attitude_fac_car:2.bike,Bike: Car (EFA factor score - regression)
+attitude_fac_bike:2.bike,Bike: Bike (EFA factor score - regression)
+attitude_fac_escooter:2.bike,Bike: E-scooter (EFA factor score - regression)
+attitude_fac_MAX:2.bike,Bike: MAX (EFA factor score - regression)
+Q8_FAC1:2.bike,"Bike: ""Comfort and safety"" (EFA factor score - regression)"
+Q8_FAC2:2.bike,"Bike: ""Exercise and environmental impact"" (EFA factor score - regression)"
+Q68_inc_2:3.em,"E-Scooter + MAX: $25,000 - $49,999"
+Q68_inc_3:3.em,"E-Scooter + MAX: $50,000 - $74,999"
+Q68_inc_4:3.em,"E-Scooter + MAX: $75,000 - $99,999"
+Q68_inc_5:3.em,"E-Scooter + MAX: $100,000 - $124,999"
+Q68_inc_6:3.em,"E-Scooter + MAX: Greater than $125,000"
+RECODED_Q63_am_ind_ala:3.em,E-Scooter + MAX: American Indian or Alaska Native only
+RECODED_Q63_asian:3.em,E-Scooter + MAX: Asian only
+RECODED_Q63_black:3.em,E-Scooter + MAX: Black only
+RECODED_Q63_hisp_lat:3.em,E-Scooter + MAX: Hispanic or Latinx/Latino/Latina only
+RECODED_Q63_more_than_one_race:3.em,E-Scooter + MAX: More than one race or ethnicity
+RECODED_Q63_nat_haw_pac:3.em,E-Scooter + MAX: Native Hawaiian or Pacific Islander only
+RECODED_Q63_other:3.em,E-Scooter + MAX: Other only
+Q65_female:3.em,E-Scooter + MAX: Female
+Q65_nonbinary:3.em,E-Scooter + MAX: Non-Binary
+Q65_other:3.em,E-Scooter + MAX: Other
+Q11:3.em,E-Scooter + MAX: Has driver's license
+Q64:3.em,E-Scooter + MAX: Age
+Q66:3.em,E-Scooter + MAX: Is married or living with partner
+Q67:3.em,E-Scooter + MAX: Number of children responsible for (ranges)
+Q69:3.em,E-Scooter + MAX: General state of health
+Q70:3.em,E-Scooter + MAX: Has physical limitations that make riding a bicycle or an e-scooter difficult
+RECODED_Q6activetransport:3.em,E-Scooter + MAX: Primary Commute Mode to PSU is Active Transportation
+RECODED_Q6publictransit:3.em,E-Scooter + MAX: Primary Commute Mode to PSU is Public Transit
+RECODED_Q6other:3.em,E-Scooter + MAX: Primary Commute Mode to PSU is Other
+Q5:3.em,E-Scooter + MAX: Number of days per week comes to PSU
+Q7_4:3.em,E-Scooter + MAX: Home distance from campus
+Q13:3.em,E-Scooter + MAX: Number of one way car trips in last 7 days
+Q17:3.em,E-Scooter + MAX: Number of one way bike trips in last 7 days
+Q23:3.em,E-Scooter + MAX: Number of one way e-scooter trips in last 7 days
+Q30:3.em,E-Scooter + MAX: Number of one way MAX trips in last 7 days
+attitude_fac_car:3.em,E-Scooter + MAX: Car (EFA factor score - regression)
+attitude_fac_bike:3.em,E-Scooter + MAX: Bike (EFA factor score - regression)
+attitude_fac_escooter:3.em,E-Scooter + MAX: E-scooter (EFA factor score - regression)
+attitude_fac_MAX:3.em,E-Scooter + MAX: MAX (EFA factor score - regression)
+Q8_FAC1:3.em,"E-Scooter + MAX: ""Comfort and safety"" (EFA factor score - regression)"
+Q8_FAC2:3.em,"E-Scooter + MAX: ""Exercise and environmental impact"" (EFA factor score - regression)"
+(Intercept):2.bike,Bike: Intercept
+(Intercept):3.em,E-Scooter + MAX: Intercept

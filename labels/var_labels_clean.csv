@@ -1,0 +1,57 @@
+﻿name,label
+Q68_inc_2,"$25,000 - $49,999"
+Q68_inc_3,"$50,000 - $74,999"
+Q68_inc_4,"$75,000 - $99,999"
+Q68_inc_5,"$100,000 - $124,999"
+Q68_inc_6,"Greater than $125,000"
+RECODED_Q63_am_ind_ala,American Indian or Alaska Native only
+RECODED_Q63_asian,Asian only
+RECODED_Q63_black,Black only
+RECODED_Q63_hisp_lat,Hispanic or Latinx/Latino/Latina only
+RECODED_Q63_more_than_one_race,More than one race or ethnicity
+RECODED_Q63_nat_haw_pac,Native Hawaiian or Pacific Islander only
+RECODED_Q63_other,Other only
+Q65_female,Female
+Q65_nonbinary,Non-Binary
+Q65_other,Other
+Q11,Has driver's license
+Q64,Age
+Q66,Is married or living with partner
+Q67,Number of children responsible for (ranges)
+Q69,General state of health
+Q70,Has physical limitations that make riding a bicycle or an e-scooter difficult
+Q5,Number of days per week comes to PSU
+Q7_4,Home distance from campus
+RECODED_Q6activetransport,Active Transportation
+RECODED_Q6publictransit,Public Transit
+RECODED_Q6other,Other
+Q13,Number of one way car trips in last 7 days
+Q17,Number of one way bike trips in last 7 days
+Q23,Number of one way e-scooter trips in last 7 days
+Q30,Number of one way MAX trips in last 7 days
+attitude_car,Car (item sum)
+attitude_bike,Bike (item sum)
+attitude_escooter,E-scooter (item sum)
+attitude_MAX,MAX (item sum)
+Q8_FAC1,"""Comfort and safety"" (EFA factor score - regression)"
+Q8_FAC2,"""Exercise and environmental impact"" (EFA factor score - regression)"
+attitude_mean_car,Car (item mean)
+attitude_mean_bike,Bike (item mean)
+attitude_mean_escooter,E-scooter (item mean)
+attitude_mean_MAX,MAX (item mean)
+attitude_fac_car,Car (EFA factor score - regression)
+attitude_fac_bike,Bike (EFA factor score - regression)
+attitude_fac_escooter,E-scooter (EFA factor score - regression)
+attitude_fac_MAX,MAX (EFA factor score - regression)
+car_walk_time,Walk Time from Car Parking Location to Destination (mins)
+car_drive_time,Car Drive Time (mins)
+car_parking_cost,Car Parking Cost ($)
+bike_ride_time,Bike Ride Time (mins)
+em_walk_time,Walk Time to E-Scooter (mins)
+em_scoot_time,E-Scooter Time to MAX Station (mins)
+em_scoot_cost,E-scooter Cost ($)
+em_ticket_cost,MAX Ticket Cost ($)
+RECODED_Q6_activetransport,Primary Commute Mode to PSU is Active Transportation
+RECODED_Q6_publictransit,Primary Commute Mode to PSU is Public Transit
+RECODED_Q6_other,Primary Commute Mode to PSU is Other
+em_ride_time,MAX Ride Time (mins)

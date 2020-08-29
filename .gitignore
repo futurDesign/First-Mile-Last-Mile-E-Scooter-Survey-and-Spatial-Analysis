@@ -1,0 +1,14 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+Exports/OD Data from Google
+Exports/Prepped data for Google/backup
+Exports/probabilities
+geometries/Streetcar
+geometries/WaterBodies
+choice_experiment_MNL_models.R
+MNL_sensitivity_analysis.R
+mode_probabilities_spatial.R
+mode_probabilities_spatial_3.R
+testingtesting.R
