@@ -234,4 +234,4 @@ stargazer(build1, build2, build3, build4, build5,
 summarize_MNL_model_fit(build0, build1, build2, build3, build4, build5)
 
 #Save the model results for use with mapping
-save(d_complete, d_complete_wide, build0, build1, build2, build3, build4, build5, build6, file = "Exports/MNL/mnlogit/models.RData")
+save(d_complete, d_complete_wide, build0, build1, build2, build3, build4, build5, build6, file = "Exports/MNL/mnlogit/models_mnlogit.RData")
