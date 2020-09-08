@@ -334,6 +334,10 @@ test_points_final_sf <- test_points_snapped_sf_joined %>% #the sf object that co
   left_join(d_bike %>% select(id, bike_distance_m, bike_TT_sec), by = "id") %>%  #join bike travel time info to PSU rec center
   left_join(d_escooter %>% select(id, escooter_distance_m, escooter_TT_sec), by = "id")  #join escooter travel time info to closest MAX station
 
+#Save this information to file for later use (elasticity)
+test_points_info_final <- as.data.frame(test_points_final_sf) %>% select(-geometry)
+save(test_points_info_final, file = "Exports/cleaned_data/TT_cleaned.RData")
+
 mode_selection_probability_map <- function(test, d, test_points_final_sf, bbox, map_view, zoom, anchor_box_position, map_scale_length, plot_width) {
 #Remember - can only pass 1 row at a time. Must call function in a for loop.
   
