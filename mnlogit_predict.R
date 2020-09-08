@@ -3,7 +3,7 @@
 mnlogit_predict <- function(newdata, model) {
 
 #load the model coefficients into a named vector
-coefs <- build6$coefficients
+coefs <- model$coefficients
 
 #Calculate the utility, odds, and probability for each mode and indicate the predicted discrete choice
 newdata2 <- newdata %>% 
