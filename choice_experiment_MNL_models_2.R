@@ -53,7 +53,7 @@ summarize_MNL_model_fit <- function(...) {
 #=====================#
 
 #load in
-d_exp <- read_spss("../DataCleaning/cleandata/statedprefexp_clean_032320.sav") %>% 
+d_exp <- read_spss("../PSUModeChoiceSurveyDataCleaning/cleandata/statedprefexp_clean_032320.sav") %>% 
   as_factor(only_labelled = TRUE) %>%  #Factor appropriate vectors
   set_na(na = c(-7, -1, "Refused", "Appropriate Skip", "Refused or Prefer not to answer"), drop.levels = TRUE) %>% #Make missing values system missing and drop corresponding levels
   zap_label() %>% #Since we exported our variable labels, can delete them
@@ -102,7 +102,10 @@ d_complete <- d_exp %>%
                               mode == "1.car" & response == "Personal Car" ~ T,
                               mode == "3.em" & response == "E-Scooter + MAX" ~ T,
                               T ~ F))
-  
+
+#Save the long-form data for later use
+save(d_complete, file = "Exports/cleaned_data/longform.RData")
+
 #=====================#
 #Run MNL Models 2####
 #=====================#
