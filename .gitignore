@@ -10,5 +10,5 @@ geometries/WaterBodies
 choice_experiment_MNL_models.R
 MNL_sensitivity_analysis.R
 mode_probabilities_spatial.R
-mode_probabilities_spatial_3.R
+mode_probabilities_spatial_2.R
 testingtesting.R
