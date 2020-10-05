@@ -88,23 +88,80 @@ elasticity_test <-  elasticity_test_raw %>%
 
 #ONLY USE THIS IF YOU WANT TO USE AVERAGE VALUES FROM TRAVEL TIMES FROM API, NOT EXPERIMENT AVERAGES
 #Add average TT and cost data to elasticities test table
-#test_points_test <- tibble(car_drive_time = (test_points_info_final$car_traffic_TT_sec / 60),
-                           #bike_ride_time = (test_points_info_final$bike_TT_sec / 60),
-                           #em_scoot_time = (test_points_info_final$escooter_TT_sec / 60),
+test_points_test <- tibble(car_drive_time = (test_points_info_final$car_traffic_TT_sec / 60),
+                           bike_ride_time = (test_points_info_final$bike_TT_sec / 60),
+                           em_scoot_time = (test_points_info_final$escooter_TT_sec / 60),
                            #em_scoot_cost = (elasticity_test$em_scoot_cost_flat + em_scoot_time * elasticity_test$em_scoot_cost_rate),
-                           #em_ride_time = (test_points_info_final$MAX_TT_sec / 60)) %>%  #Calculate the total scoot cost at each test point
+                           em_ride_time = (test_points_info_final$MAX_TT_sec / 60)) %>%  #Calculate the total scoot cost at each test point
   #Get the mean values from all the test points
-  #summarize_all(mean) %>% 
-  #bind_cols(elasticity_test)
+  summarize_all(mean) %>% 
+  bind_cols(elasticity_test)
 
 #Predict the probabilities and choice of selecting each mode based on the estimated model parameters
 mode_probs <- data.frame(mnlogit_predict(newdata = elasticity_test, build6)
 )
 
 #Join the probs to the test_points for elasticity purposes
-elasticity_info <- test_points_test %>% bind_cols(mode_probs)
+elasticity_info <- elasticity_test %>% bind_cols(mode_probs) #Use test_points_test instead of elasticity test if you want to use other test points besides the experimental averages
 
 #Now, get elasticities (B * z * (1 - P)) and cross elasticities (-B * z * P)
-#Car
-E_car_car_drive_time <- build6$coefficients["car_drive_time"] * elasticity_info$car_drive_time * (1 - elasticity_info$p_car)
 
+elasticity <- function(B, z, P) {
+  val <- B * z * (1 - P)
+  return(val)
+}
+
+cross_elasticity <- function(B, z, P) {
+  val <- -1 * B * z * P
+  return(val)
+}
+
+#Create a data frame containing all of the interesting direct elasticities and cross elasticities
+elasticities <- data.frame(
+#Car
+#Elasticity <- 
+E_car_car_walk_time = elasticity(build6$coefficients["car_walk_time"], elasticity_info$car_walk_time, elasticity_info$p_car),
+E_car_car_drive_time = elasticity(build6$coefficients["car_drive_time"], elasticity_info$car_drive_time, elasticity_info$p_car),
+E_car_car_parking_cost = elasticity(build6$coefficients["car_parking_cost"], elasticity_info$car_parking_cost, elasticity_info$p_car),
+
+#Cross Elasticity
+E_car_bike_ride_time = cross_elasticity(build6$coefficients["bike_ride_time"], elasticity_info$bike_ride_time, elasticity_info$p_car),
+E_car_em_walk_time = cross_elasticity(build6$coefficients["em_walk_time"], elasticity_info$em_walk_time, elasticity_info$p_car),
+E_car_em_scoot_time = cross_elasticity(build6$coefficients["em_scoot_time"], elasticity_info$em_scoot_time, elasticity_info$p_car),
+E_car_em_scoot_cost = cross_elasticity(build6$coefficients["em_scoot_cost"], elasticity_info$em_scoot_cost, elasticity_info$p_car),
+E_car_em_ride_time = cross_elasticity(build6$coefficients["em_ride_time"], elasticity_info$em_ride_time, elasticity_info$p_car),
+E_car_em_ticket_cost = cross_elasticity(build6$coefficients["em_ticket_cost"], elasticity_info$em_ticket_cost, elasticity_info$p_car),
+
+#Bike
+#Elasticity
+E_bike_bike_ride_time = elasticity(build6$coefficients["bike_ride_time"], elasticity_info$bike_ride_time, elasticity_info$p_bike),
+
+#Cross Elasticity
+E_bike_car_walk_time = cross_elasticity(build6$coefficients["car_walk_time"], elasticity_info$car_walk_time, elasticity_info$p_bike),
+E_bike_car_drive_time = cross_elasticity(build6$coefficients["car_drive_time"], elasticity_info$car_drive_time, elasticity_info$p_bike),
+E_bike_car_parking_cost = cross_elasticity(build6$coefficients["car_parking_cost"], elasticity_info$car_parking_cost, elasticity_info$p_bike),
+E_bike_em_walk_time = cross_elasticity(build6$coefficients["em_walk_time"], elasticity_info$em_walk_time, elasticity_info$p_bike),
+E_bike_em_scoot_time = cross_elasticity(build6$coefficients["em_scoot_time"], elasticity_info$em_scoot_time, elasticity_info$p_bike),
+E_bike_em_scoot_cost = cross_elasticity(build6$coefficients["em_scoot_cost"], elasticity_info$em_scoot_cost, elasticity_info$p_bike),
+E_bike_em_ride_time = cross_elasticity(build6$coefficients["em_ride_time"], elasticity_info$em_ride_time, elasticity_info$p_bike),
+E_bike_em_ticket_cost = cross_elasticity(build6$coefficients["em_ticket_cost"], elasticity_info$em_ticket_cost, elasticity_info$p_bike),
+
+#E-Scooter + MAX
+#Elasticity
+E_em_em_walk_time = elasticity(build6$coefficients["em_walk_time"], elasticity_info$em_walk_time, elasticity_info$p_em),
+E_em_em_scoot_time = elasticity(build6$coefficients["em_scoot_time"], elasticity_info$em_scoot_time, elasticity_info$p_em),
+E_em_em_scoot_cost = elasticity(build6$coefficients["em_scoot_cost"], elasticity_info$em_scoot_cost, elasticity_info$p_em),
+E_em_em_ride_time = elasticity(build6$coefficients["em_ride_time"], elasticity_info$em_ride_time, elasticity_info$p_em),
+E_em_em_ticket_cost = elasticity(build6$coefficients["em_ticket_cost"], elasticity_info$em_ticket_cost, elasticity_info$p_em),
+
+#Cross Elasticity
+E_em_bike_ride_time = cross_elasticity(build6$coefficients["bike_ride_time"], elasticity_info$bike_ride_time, elasticity_info$p_em),
+E_em_car_walk_time = cross_elasticity(build6$coefficients["car_walk_time"], elasticity_info$car_walk_time, elasticity_info$p_em),
+E_em_car_drive_time = cross_elasticity(build6$coefficients["car_drive_time"], elasticity_info$car_drive_time, elasticity_info$p_em),
+E_em_car_parking_cost = cross_elasticity(build6$coefficients["car_parking_cost"], elasticity_info$car_parking_cost, elasticity_info$p_em))
+
+#get rid of a residual row name in the data frame
+rownames(elasticities) <- NULL
+
+#Write out the elasticity values
+write.csv(elasticities, "Exports/Elasticities/elasticities.csv")
